@@ -1,0 +1,35 @@
+{
+  "name": "Libertad Condicional · Honduras",
+  "short_name": "L.C. Honduras",
+  "description": "Calculadora de Libertad Condicional — Decreto 130-2017 — Arts. 81 y 82 — Código Penal Honduras",
+  "start_url": "/libertad-condicional.html",
+  "display": "standalone",
+  "background_color": "#0A2015",
+  "theme_color": "#0D3020",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "categories": ["legal", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Calcular Libertad Condicional",
+      "short_name": "Calcular",
+      "description": "Ir directo a la calculadora",
+      "url": "/libertad-condicional.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

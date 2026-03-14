@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest-lc.json">
+<meta name="theme-color" content="#0D3020">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Libertad Condicional HN">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Libertad Condicional · Honduras · Decreto 130-2017</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#0A2015;--mid:#0D3020;--light:#144028;--green:#1B5E35;--green-l:#27AE60;
+  --gold:#C8A84B;--gold-l:#E5C96F;--cream:#F4F0E8;--text:#1A2A20;--muted:#5A7A60;
+  --white:#FFFFFF;--red:#C0392B;--shadow:0 8px 40px rgba(10,32,21,0.28);--r:14px;--r-lg:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;overflow-x:hidden;}
+header{background:linear-gradient(135deg,var(--dark) 0%,var(--mid) 55%,#1a4a2a 100%);position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C8A84B' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
+header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hdr{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:36px 24px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.hdr-brand{display:flex;align-items:center;gap:16px;}
+.hdr-seal{width:76px;height:76px;flex-shrink:0;filter:drop-shadow(0 4px 16px rgba(200,168,75,0.45));}
+.hdr-text h1{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.8vw,24px);color:var(--white);font-weight:700;line-height:1.2;}
+.hdr-text .sub{color:var(--gold-l);font-size:11px;margin-top:5px;letter-spacing:0.7px;text-transform:uppercase;font-weight:500;}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.hdr-badge{background:rgba(200,168,75,0.15);border:1px solid rgba(200,168,75,0.4);color:var(--gold-l);font-size:10.5px;padding:5px 13px;border-radius:50px;font-weight:600;letter-spacing:0.4px;text-transform:uppercase;white-space:nowrap;}
+#installBtn2{display:none;background:linear-gradient(135deg,var(--gold),#8a6f1e);border:none;color:var(--dark);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;padding:7px 14px;border-radius:50px;cursor:pointer;}
+#installBanner{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#0A2015,#144028);border-top:2px solid rgba(200,168,75,0.45);padding:14px 20px;align-items:center;gap:14px;box-shadow:0 -8px 32px rgba(0,0,0,0.5);}
+#installBanner .ib-icon{font-size:28px;flex-shrink:0;}
+#installBanner .ib-text{flex:1;}
+#installBanner .ib-text h4{color:#fff;font-size:14px;font-weight:700;}
+#installBanner .ib-text p{color:rgba(255,255,255,0.5);font-size:12px;margin-top:2px;}
+.btn-install{background:linear-gradient(135deg,var(--gold),#8a6f1e);border:none;color:var(--dark);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;padding:10px 22px;border-radius:50px;cursor:pointer;white-space:nowrap;}
+.btn-dismiss{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);font-family:'DM Sans',sans-serif;font-size:12px;padding:8px 14px;border-radius:50px;cursor:pointer;}
+.docs-bar{background:linear-gradient(180deg,var(--mid) 0%,var(--light) 100%);padding:20px 24px;border-bottom:1px solid rgba(200,168,75,0.12);}
+.docs-inner{max-width:1100px;margin:0 auto;}
+.docs-label{color:rgba(255,255,255,0.45);font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.docs-grid{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-doc{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,0.06);border:1px solid rgba(200,168,75,0.3);color:var(--gold-l);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:9px 16px;border-radius:50px;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.btn-doc:hover{background:rgba(200,168,75,0.18);border-color:var(--gold);color:var(--gold);}
+.norm-bar{background:rgba(10,32,21,0.6);padding:14px 24px;border-bottom:1px solid rgba(200,168,75,0.1);}
+.norm-inner{max-width:1100px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.norm-label{color:rgba(255,255,255,0.4);font-size:10.5px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;}
+.norm-pill{background:rgba(255,255,255,0.05);border:1px solid rgba(200,168,75,0.25);color:var(--gold-l);font-size:11.5px;font-weight:600;padding:5px 14px;border-radius:50px;}
+.main{max-width:1100px;margin:0 auto;padding:40px 18px 80px;}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;color:var(--dark);margin-bottom:5px;}
+.stitle span{color:var(--gold);}
+.sdesc{color:var(--muted);font-size:13px;margin-bottom:24px;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,168,75,0.3),transparent);margin:4px 0 28px;}
+.art-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:40px;}
+@media(max-width:720px){.art-grid{grid-template-columns:1fr;}}
+.art-card{background:var(--white);border-radius:var(--r-lg);border:1px solid rgba(200,168,75,0.13);box-shadow:var(--shadow);overflow:hidden;}
+.art-head{background:linear-gradient(135deg,var(--dark) 0%,var(--mid) 100%);padding:16px 20px;display:flex;align-items:center;gap:11px;}
+.art-num{width:42px;height:42px;border-radius:11px;background:rgba(200,168,75,0.2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold-l);flex-shrink:0;}
+.art-head h3{color:var(--white);font-size:13.5px;font-weight:700;font-family:'Cormorant Garamond',serif;}
+.art-head p{color:rgba(255,255,255,0.4);font-size:10.5px;margin-top:2px;}
+.art-body{padding:18px 20px;}
+.rule-row{display:flex;align-items:flex-start;gap:11px;padding:9px 0;border-bottom:1px dashed #E8E0D0;}
+.rule-row:last-child{border-bottom:none;}
+.rule-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.rule-text{font-size:12.5px;color:var(--text);line-height:1.55;}
+.rule-text strong{color:var(--dark);}
+.rfrac{display:inline-block;background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.35);color:var(--gold);font-family:'DM Mono',monospace;font-size:12px;font-weight:600;padding:1px 8px;border-radius:50px;margin:0 2px;}
+.calc-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow);border:1px solid rgba(200,168,75,0.13);overflow:hidden;margin-bottom:28px;}
+.calc-head{background:linear-gradient(135deg,var(--dark) 0%,var(--mid) 100%);padding:20px 26px;display:flex;align-items:center;gap:13px;}
+.calc-head-icon{width:44px;height:44px;border-radius:12px;background:rgba(200,168,75,0.2);display:flex;align-items:center;justify-content:center;font-size:21px;}
+.calc-head h2{color:var(--white);font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;}
+.calc-head p{color:rgba(255,255,255,0.4);font-size:10.5px;margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
+.calc-body{padding:26px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr;}.form-grid-3{grid-template-columns:1fr 1fr;}}
+.form-group{margin-bottom:0;}
+.form-label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.form-label .req{color:var(--gold);margin-left:2px;}
+.form-input,.form-select{width:100%;background:#F4F0E8;border:1.5px solid #D8D0C0;border-radius:9px;padding:11px 13px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none;}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer;}
+.form-input:focus,.form-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,168,75,0.14);background:var(--white);}
+.fsec{font-size:11.5px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.8px;padding:5px 0;margin:18px 0 13px;border-bottom:1px solid rgba(200,168,75,0.2);display:flex;align-items:center;gap:7px;}
+.tip-box{background:rgba(200,168,75,0.07);border:1px solid rgba(200,168,75,0.25);border-left:3px solid var(--gold);border-radius:9px;padding:12px 16px;font-size:12.5px;color:#5A4000;line-height:1.6;margin-bottom:18px;}
+.tip-box strong{color:#3A2800;}
+.btn-calc{width:100%;margin-top:22px;background:linear-gradient(135deg,var(--dark) 0%,var(--light) 100%);border:none;color:var(--gold-l);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;padding:16px;border-radius:10px;cursor:pointer;letter-spacing:0.4px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:9px;}
+.btn-calc:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(10,32,21,0.35);}
+.btn-reset{width:100%;margin-top:10px;background:transparent;border:1.5px solid #D0C8B0;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:11px;border-radius:10px;cursor:pointer;transition:all .2s;}
+.btn-reset:hover{border-color:var(--red);color:var(--red);}
+#resultSection{display:none;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.result-hero{background:linear-gradient(135deg,var(--dark) 0%,#1a4a2a 100%);border-radius:var(--r-lg);padding:26px;margin-bottom:20px;border:1px solid rgba(200,168,75,0.25);box-shadow:0 12px 40px rgba(10,32,21,0.4);}
+.result-name{color:var(--gold-l);font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.result-title{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.8vw,21px);color:var(--white);font-weight:700;margin-bottom:18px;line-height:1.3;}
+.dates-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:520px){.dates-grid{grid-template-columns:1fr;}}
+.date-block{border-radius:12px;padding:17px;border:1px solid;}
+.date-block.calc-date{background:rgba(200,168,75,0.1);border-color:rgba(200,168,75,0.3);}
+.date-block.judge-date{background:rgba(27,94,53,0.2);border-color:rgba(39,174,96,0.35);}
+.date-block.no-judge{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);}
+.dbl-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;}
+.calc-date .dbl-label{color:var(--gold-l);}
+.judge-date .dbl-label{color:#5DCC8A;}
+.no-judge .dbl-label{color:rgba(255,255,255,0.35);}
+.date-big{font-family:'DM Mono',monospace;font-size:clamp(14px,3vw,18px);font-weight:500;color:var(--white);margin-bottom:4px;}
+.date-sub{font-size:11.5px;color:rgba(255,255,255,0.42);line-height:1.5;}
+.art-tag{display:inline-flex;align-items:center;background:rgba(200,168,75,0.14);border:1px solid rgba(200,168,75,0.3);color:var(--gold-l);font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:50px;margin-top:14px;}
+.countdown-card{background:linear-gradient(135deg,var(--dark) 0%,var(--light) 100%);border-radius:var(--r-lg);padding:22px 26px;border:1px solid rgba(200,168,75,0.2);box-shadow:0 8px 30px rgba(10,32,21,0.3);margin-bottom:20px;}
+.cd-title{color:rgba(255,255,255,0.5);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:13px;}
+.cd-boxes{display:flex;gap:10px;flex-wrap:wrap;}
+.cd-box{flex:1;min-width:75px;background:rgba(255,255,255,0.05);border:1px solid rgba(200,168,75,0.2);border-radius:11px;padding:13px 10px;text-align:center;}
+.cd-num{font-family:'DM Mono',monospace;font-size:clamp(22px,5vw,34px);font-weight:500;color:var(--gold-l);line-height:1;}
+.cd-unit{color:rgba(255,255,255,0.38);font-size:10.5px;margin-top:4px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;}
+.cd-passed{background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.3);border-radius:10px;padding:12px 16px;margin-top:13px;display:none;align-items:center;gap:10px;}
+.cd-passed .icon{font-size:20px;}
+.cd-passed .text{font-size:12.5px;color:rgba(255,255,255,0.65);line-height:1.5;}
+.cd-passed .text strong{color:#5DCC8A;}
+.eligible-banner{border-radius:11px;padding:15px 18px;display:flex;align-items:center;gap:13px;margin-bottom:20px;}
+.eligible-banner.yes{background:rgba(27,94,53,0.14);border:1px solid rgba(39,174,96,0.35);}
+.eligible-banner.no{background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.35);}
+.eligible-banner.soon{background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.3);}
+.eb-icon{font-size:26px;flex-shrink:0;}
+.eb-title{font-size:14.5px;font-weight:700;margin-bottom:3px;}
+.eligible-banner.yes .eb-title{color:#27AE60;}
+.eligible-banner.no .eb-title{color:#E74C3C;}
+.eligible-banner.soon .eb-title{color:var(--gold-l);}
+.eb-text{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;}
+.breakdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+@media(max-width:600px){.breakdown-grid{grid-template-columns:1fr;}}
+.bk-card{background:var(--white);border-radius:var(--r);border:1px solid rgba(200,168,75,0.12);box-shadow:0 2px 14px rgba(10,32,21,0.08);overflow:hidden;}
+.bk-head{background:linear-gradient(135deg,var(--dark) 0%,var(--mid) 100%);padding:12px 17px;display:flex;align-items:center;gap:8px;}
+.bk-head span{color:var(--white);font-size:13px;font-weight:700;}
+.bk-body{padding:14px 17px;}
+.bk-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px dashed #EAE0D0;font-size:12.5px;}
+.bk-row:last-child{border-bottom:none;}
+.bk-label{color:var(--muted);flex:1;padding-right:8px;line-height:1.4;}
+.bk-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;color:var(--dark);white-space:nowrap;}
+.bk-val.gold{color:var(--gold);}
+.bk-val.green{color:#27AE60;}
+.bk-val.red{color:var(--red);}
+.legal-note{background:var(--white);border-radius:var(--r);border:1px solid rgba(200,168,75,0.15);padding:18px;margin-top:4px;}
+.legal-note h4{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:7px;}
+.legal-note p{font-size:12.5px;color:var(--muted);line-height:1.7;}
+.creator-block{text-align:center;margin-top:28px;padding-top:24px;border-top:1px solid rgba(200,168,75,0.15);}
+.creator-block .cr-sub{color:var(--muted);font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;}
+.creator-block .cr-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);margin-top:4px;}
+footer{background:var(--dark);color:rgba(255,255,255,0.38);text-align:center;padding:26px 20px;font-size:12px;border-top:1px solid rgba(200,168,75,0.12);line-height:1.9;}
+footer strong{color:rgba(255,255,255,0.7);}
+.footer-creator{margin-top:14px;padding-top:14px;border-top:1px solid rgba(200,168,75,0.12);}
+.footer-creator span{color:var(--gold-l);font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;margin-left:6px;}
+@media(max-width:460px){.calc-body{padding:18px;}.hdr{padding:22px 14px;}.hdr-seal{width:56px;height:56px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="hdr-brand">
+      <!-- ESCUDO DE HONDURAS SVG -->
+      <div class="hdr-seal">
+        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="ov"><ellipse cx="100" cy="112" rx="62" ry="76"/></clipPath>
+    <radialGradient id="sky" cx="50%" cy="60%" r="70%">
+      <stop offset="0%" stop-color="#87CEEB"/>
+      <stop offset="60%" stop-color="#4A90D9"/>
+      <stop offset="100%" stop-color="#1E5FA8"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF176"/>
+      <stop offset="100%" stop-color="#F9A825"/>
+    </radialGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E88E5" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0D47A1" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#388E3C"/>
+      <stop offset="100%" stop-color="#1B5E20"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ══ FONDO EXTERIOR (paisaje) ══ -->
+  <!-- Cielo exterior -->
+  <ellipse cx="100" cy="112" rx="90" ry="100" fill="#E8F5E9" opacity="0.3"/>
+
+  <!-- Árboles exteriores izquierda -->
+  <rect x="18" y="130" width="7" height="35" rx="2" fill="#5D4037"/>
+  <ellipse cx="21" cy="122" rx="14" ry="18" fill="#2E7D32"/>
+  <ellipse cx="21" cy="118" rx="10" ry="13" fill="#388E3C"/>
+  <!-- Árbol izquierda 2 -->
+  <rect x="5" y="145" width="6" height="28" rx="2" fill="#5D4037"/>
+  <ellipse cx="8" cy="137" rx="11" ry="15" fill="#1B5E20"/>
+
+  <!-- Árboles exteriores derecha -->
+  <rect x="175" y="130" width="7" height="35" rx="2" fill="#5D4037"/>
+  <ellipse cx="179" cy="122" rx="14" ry="18" fill="#2E7D32"/>
+  <ellipse cx="179" cy="118" rx="10" ry="13" fill="#388E3C"/>
+  <!-- Árbol derecha 2 -->
+  <rect x="189" y="145" width="6" height="28" rx="2" fill="#5D4037"/>
+  <ellipse cx="192" cy="137" rx="11" ry="15" fill="#1B5E20"/>
+
+  <!-- Colinas exteriores -->
+  <ellipse cx="45" cy="178" rx="38" ry="22" fill="#4CAF50" opacity="0.7"/>
+  <ellipse cx="155" cy="178" rx="38" ry="22" fill="#4CAF50" opacity="0.7"/>
+  <rect x="0" y="175" width="200" height="45" fill="#388E3C" rx="0"/>
+  <ellipse cx="35" cy="175" rx="40" ry="14" fill="#2E7D32"/>
+  <ellipse cx="165" cy="175" rx="40" ry="14" fill="#2E7D32"/>
+  <rect x="0" y="185" width="200" height="35" fill="#1B5E20"/>
+
+  <!-- Mina / cueva izquierda -->
+  <ellipse cx="42" cy="188" rx="10" ry="7" fill="#0D1A0F"/>
+  <rect x="32" y="183" width="20" height="10" rx="2" fill="#33691E" opacity="0.6"/>
+
+  <!-- Bloques de piedra derecha -->
+  <rect x="152" y="182" width="12" height="9" rx="1" fill="#8D6E63"/>
+  <rect x="155" y="178" width="9" height="6" rx="1" fill="#A1887F"/>
+
+  <!-- Picos cruzados (herramientas) en la base -->
+  <g transform="translate(100,196)">
+    <line x1="-22" y1="-8" x2="22" y2="8" stroke="#C8A84B" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="22" y1="-8" x2="-22" y2="8" stroke="#C8A84B" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Cabezas de pico -->
+    <rect x="-26" y="-11" width="8" height="5" rx="1" fill="#A0522D" transform="rotate(-20,-22,-8)"/>
+    <rect x="18" y="-11" width="8" height="5" rx="1" fill="#A0522D" transform="rotate(20,22,-8)"/>
+  </g>
+
+  <!-- Cornucopia IZQUIERDA -->
+  <g transform="translate(38,95)">
+    <path d="M0,0 Q-18,-10 -20,-30 Q-15,-45 -5,-50 Q10,-48 15,-35 Q18,-20 10,-5 Z" fill="#C8A84B"/>
+    <path d="M0,0 Q-16,-10 -18,-28 Q-14,-40 -6,-44" fill="none" stroke="#A07828" stroke-width="1.5"/>
+    <!-- Frutas -->
+    <circle cx="-8" cy="-52" r="5" fill="#E53935"/>
+    <circle cx="-2" cy="-56" r="4" fill="#FDD835"/>
+    <circle cx="4" cy="-52" r="4.5" fill="#FB8C00"/>
+    <ellipse cx="-5" cy="-58" rx="3" ry="5" fill="#388E3C"/>
+  </g>
+
+  <!-- Cornucopia DERECHA -->
+  <g transform="translate(162,95) scale(-1,1)">
+    <path d="M0,0 Q-18,-10 -20,-30 Q-15,-45 -5,-50 Q10,-48 15,-35 Q18,-20 10,-5 Z" fill="#C8A84B"/>
+    <path d="M0,0 Q-16,-10 -18,-28 Q-14,-40 -6,-44" fill="none" stroke="#A07828" stroke-width="1.5"/>
+    <!-- Frutas -->
+    <circle cx="-8" cy="-52" r="5" fill="#E53935"/>
+    <circle cx="-2" cy="-56" r="4" fill="#FDD835"/>
+    <circle cx="4" cy="-52" r="4.5" fill="#FB8C00"/>
+    <ellipse cx="-5" cy="-58" rx="3" ry="5" fill="#388E3C"/>
+  </g>
+
+  <!-- Flores izquierda -->
+  <circle cx="28" cy="88" r="6" fill="#E91E63"/>
+  <circle cx="25" cy="82" r="4" fill="#F48FB1"/>
+  <circle cx="32" cy="83" r="3.5" fill="#FF8F00"/>
+
+  <!-- Flores derecha -->
+  <circle cx="172" cy="88" r="6" fill="#E91E63"/>
+  <circle cx="175" cy="82" r="4" fill="#F48FB1"/>
+  <circle cx="168" cy="83" r="3.5" fill="#FF8F00"/>
+
+  <!-- Quetzal / penacho en la cima -->
+  <g transform="translate(100,28)">
+    <!-- Base copa -->
+    <path d="M-12,0 Q-14,-8 -10,-14 Q0,-18 10,-14 Q14,-8 12,0 Z" fill="#8D6E63"/>
+    <rect x="-10" y="-2" width="20" height="6" rx="2" fill="#6D4C41"/>
+    <!-- Plumas -->
+    <path d="M0,-14 Q-8,-28 -12,-42" stroke="#388E3C" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M0,-14 Q0,-30 0,-45" stroke="#1B5E20" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M0,-14 Q8,-28 12,-42" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M0,-14 Q-14,-24 -18,-36" stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M0,-14 Q14,-24 18,-36" stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Hojas en punta -->
+    <ellipse cx="-12" cy="-43" rx="3" ry="6" fill="#4CAF50" transform="rotate(-20,-12,-43)"/>
+    <ellipse cx="0" cy="-46" rx="3" ry="7" fill="#66BB6A"/>
+    <ellipse cx="12" cy="-43" rx="3" ry="6" fill="#4CAF50" transform="rotate(20,12,-43)"/>
+  </g>
+
+  <!-- ══ ÓVALO PRINCIPAL ══ -->
+  <!-- Borde exterior dorado grueso -->
+  <ellipse cx="100" cy="112" rx="66" ry="80" fill="#C8A84B"/>
+  <!-- Borde interior oscuro (banda de texto) -->
+  <ellipse cx="100" cy="112" rx="63" ry="77" fill="#0D3020"/>
+  <!-- Fondo del óvalo (cielo) -->
+  <ellipse cx="100" cy="112" rx="60" ry="74" fill="url(#sky)" clip-path="url(#ov)"/>
+
+  <!-- ══ INTERIOR DEL ESCUDO ══ -->
+  <!-- Agua / lago en la base -->
+  <ellipse cx="100" cy="168" rx="58" ry="18" fill="url(#water)" clip-path="url(#ov)"/>
+
+  <!-- Montaña verde central (volcán) -->
+  <polygon points="100,75 68,155 132,155" fill="#2E7D32" clip-path="url(#ov)"/>
+  <polygon points="100,75 85,108 115,108" fill="#388E3C" clip-path="url(#ov)"/>
+
+  <!-- Pirámide (edificio de ladrillo) -->
+  <g clip-path="url(#ov)">
+    <polygon points="100,88 72,152 128,152" fill="#D2691E"/>
+    <!-- Filas de ladrillo -->
+    <line x1="76" y1="140" x2="124" y2="140" stroke="#A0522D" stroke-width="1.2"/>
+    <line x1="79" y1="130" x2="121" y2="130" stroke="#A0522D" stroke-width="1.2"/>
+    <line x1="82" y1="120" x2="118" y2="120" stroke="#A0522D" stroke-width="1.2"/>
+    <line x1="85" y1="110" x2="115" y2="110" stroke="#A0522D" stroke-width="1.2"/>
+    <line x1="88" y1="100" x2="112" y2="100" stroke="#A0522D" stroke-width="1.2"/>
+    <!-- Líneas verticales ladrillos -->
+    <line x1="84" y1="140" x2="82" y2="130" stroke="#A0522D" stroke-width="0.8"/>
+    <line x1="93" y1="140" x2="92" y2="130" stroke="#A0522D" stroke-width="0.8"/>
+    <line x1="100" y1="140" x2="100" y2="130" stroke="#A0522D" stroke-width="0.8"/>
+    <line x1="107" y1="140" x2="108" y2="130" stroke="#A0522D" stroke-width="0.8"/>
+    <line x1="116" y1="140" x2="118" y2="130" stroke="#A0522D" stroke-width="0.8"/>
+  </g>
+
+  <!-- Sol naciente -->
+  <g clip-path="url(#ov)">
+    <circle cx="100" cy="100" r="11" fill="url(#sun)"/>
+    <!-- Rayos -->
+    <g stroke="#F9C107" stroke-width="1.5" stroke-linecap="round">
+      <line x1="100" y1="85" x2="100" y2="80"/>
+      <line x1="110" y1="88" x2="114" y2="84"/>
+      <line x1="114" y1="98" x2="119" y2="97"/>
+      <line x1="110" y1="110" x2="115" y2="113"/>
+      <line x1="90" y1="88" x2="86" y2="84"/>
+      <line x1="86" y1="98" x2="81" y2="97"/>
+      <line x1="90" y1="110" x2="85" y2="113"/>
+    </g>
+  </g>
+
+  <!-- Arco iris -->
+  <g clip-path="url(#ov)" opacity="0.9">
+    <path d="M72,128 A34,34 0 0,1 128,128" fill="none" stroke="#9C27B0" stroke-width="3"/>
+    <path d="M74,128 A32,32 0 0,1 126,128" fill="none" stroke="#3F51B5" stroke-width="3"/>
+    <path d="M76,128 A30,30 0 0,1 124,128" fill="none" stroke="#2196F3" stroke-width="3"/>
+    <path d="M78,128 A28,28 0 0,1 122,128" fill="none" stroke="#4CAF50" stroke-width="3"/>
+    <path d="M80,128 A26,26 0 0,1 120,128" fill="none" stroke="#FFEB3B" stroke-width="3"/>
+    <path d="M82,128 A24,24 0 0,1 118,128" fill="none" stroke="#FF9800" stroke-width="3"/>
+    <path d="M84,128 A22,22 0 0,1 116,128" fill="none" stroke="#F44336" stroke-width="3"/>
+  </g>
+
+  <!-- Torre IZQUIERDA -->
+  <g clip-path="url(#ov)">
+    <rect x="58" y="125" width="20" height="28" fill="#9E9E9E"/>
+    <rect x="55" y="122" width="26" height="6" fill="#757575"/>
+    <!-- Almenas torre izq -->
+    <rect x="56" y="117" width="5" height="6" fill="#757575"/>
+    <rect x="62" y="117" width="5" height="6" fill="#757575"/>
+    <rect x="68" y="117" width="5" height="6" fill="#757575"/>
+    <rect x="74" y="117" width="5" height="6" fill="#757575"/>
+    <!-- Ventana torre izq -->
+    <rect x="64" y="130" width="8" height="11" rx="4" fill="#1E3A5F"/>
+    <!-- Líneas de piedra -->
+    <line x1="58" y1="133" x2="78" y2="133" stroke="#616161" stroke-width="0.8"/>
+    <line x1="58" y1="140" x2="78" y2="140" stroke="#616161" stroke-width="0.8"/>
+    <line x1="58" y1="147" x2="78" y2="147" stroke="#616161" stroke-width="0.8"/>
+  </g>
+
+  <!-- Torre DERECHA -->
+  <g clip-path="url(#ov)">
+    <rect x="122" y="125" width="20" height="28" fill="#9E9E9E"/>
+    <rect x="119" y="122" width="26" height="6" fill="#757575"/>
+    <!-- Almenas torre der -->
+    <rect x="120" y="117" width="5" height="6" fill="#757575"/>
+    <rect x="126" y="117" width="5" height="6" fill="#757575"/>
+    <rect x="132" y="117" width="5" height="6" fill="#757575"/>
+    <rect x="138" y="117" width="5" height="6" fill="#757575"/>
+    <!-- Ventana torre der -->
+    <rect x="128" y="130" width="8" height="11" rx="4" fill="#1E3A5F"/>
+    <!-- Líneas de piedra -->
+    <line x1="122" y1="133" x2="142" y2="133" stroke="#616161" stroke-width="0.8"/>
+    <line x1="122" y1="140" x2="142" y2="140" stroke="#616161" stroke-width="0.8"/>
+    <line x1="122" y1="147" x2="142" y2="147" stroke="#616161" stroke-width="0.8"/>
+  </g>
+
+  <!-- Reflejo en el agua -->
+  <g clip-path="url(#ov)" opacity="0.25">
+    <polygon points="100,155 74,175 126,175" fill="#D2691E"/>
+    <circle cx="100" cy="158" r="6" fill="#F9C107"/>
+  </g>
+
+  <!-- ══ BANDA DE TEXTO CIRCULAR ══ -->
+  <!-- Texto superior -->
+  <path id="topText" d="M 41,112 A 59,76 0 0,1 159,112" fill="none"/>
+  <text font-family="Georgia,serif" font-size="7.2" fill="#C8A84B" font-weight="bold" letter-spacing="0.8">
+    <textPath href="#topText" startOffset="3%">REPÚBLICA DE HONDURAS, LIBRE, SOBERANA E INDEPENDIENTE.</textPath>
+  </text>
+
+  <!-- Texto inferior (fecha) -->
+  <path id="botText" d="M 48,112 A 52,68 0 0,0 152,112" fill="none"/>
+  <text font-family="Georgia,serif" font-size="6.5" fill="#C8A84B" font-weight="bold" letter-spacing="1">
+    <textPath href="#botText" startOffset="18%">15 DE SEPTIEMBRE DE 1821</textPath>
+  </text>
+
+  <!-- Borde dorado exterior del óvalo -->
+  <ellipse cx="100" cy="112" rx="66" ry="80" fill="none" stroke="#E5C96F" stroke-width="1.5" opacity="0.6"/>
+</svg>
+      </div>
+      <div class="hdr-text">
+        <h1>Calculadora de Libertad Condicional</h1>
+        <div class="sub">Decreto No. 130-2017 · Código Penal Honduras · Arts. 81 y 82</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <span class="hdr-badge">✦ Vigente 2017</span>
+      <button id="installBtn2" onclick="triggerInstall()">📲 Instalar App</button>
+    </div>
+  </div>
+</header>
+
+<!-- DOCUMENTOS -->
+<div class="docs-bar">
+  <div class="docs-inner">
+    <div class="docs-label">📄 Descargar Documentos Legales de Honduras</div>
+    <div class="docs-grid">
+      <a href="CONSTITUCIONDELAREPUBLICADEHONDURAS(actualizada2025).pdf" download class="btn-doc">
+        <span>📜</span>
+        <span>Constitución de Honduras<br><small style="opacity:.6;font-size:10px;">Actualizada 2025</small></span>
+      </a>
+      <a href="Codigo Procesal Penal (2024).pdf" download class="btn-doc">
+        <span>⚖️</span>
+        <span>Código Procesal Penal<br><small style="opacity:.6;font-size:10px;">Edición 2024</small></span>
+      </a>
+      <a href="Codigo Penal No.130-2017(actualizadojulio2020)-1.pdf" download class="btn-doc">
+        <span>📋</span>
+        <span>Código Penal No. 130-2017<br><small style="opacity:.6;font-size:10px;">Actualizado julio 2020</small></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NORM BAR -->
+<div class="norm-bar">
+  <div class="norm-inner">
+    <span class="norm-label">📋 Arts.:</span>
+    <span class="norm-pill">Art. 81 — Régimen General (½ · ⅔ · 30 años)</span>
+    <span class="norm-pill">Art. 82 — Régimen Excepcional</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="stitle">Marco <span>Legal Aplicable</span></div>
+  <div class="sdesc">Reglas de cómputo para solicitar libertad condicional — Código Penal vigente.</div>
+  <div class="divider"></div>
+
+  <div class="art-grid">
+    <div class="art-card">
+      <div class="art-head">
+        <div class="art-num">81</div>
+        <div><h3>Régimen General de Libertad Condicional</h3><p>Código Penal · Decreto 130-2017</p></div>
+      </div>
+      <div class="art-body">
+        <div class="rule-row"><div class="rule-icon" style="background:#FFF3E0;">⏱️</div><div class="rule-text">Pena <strong>hasta 15 años</strong>: debe cumplir <span class="rfrac">½</span> de la pena impuesta.</div></div>
+        <div class="rule-row"><div class="rule-icon" style="background:#E8F4FF;">⏳</div><div class="rule-text">Pena <strong>más de 15 y menos de 30 años</strong>: debe cumplir <span class="rfrac">⅔</span> de la pena.</div></div>
+        <div class="rule-row"><div class="rule-icon" style="background:#FFE8E8;">🔒</div><div class="rule-text">Pena que <strong>sobrepasa 30 años</strong>: no aplica hasta cumplir <span class="rfrac">30 años</span> efectivos.</div></div>
+        <div class="rule-row"><div class="rule-icon" style="background:#E8F5EE;">✅</div><div class="rule-text">Además: <strong>buena conducta</strong>, pronóstico de reinserción y responsabilidades civiles satisfechas.</div></div>
+        <div class="rule-row"><div class="rule-icon" style="background:#FFF5E0;">⚠️</div><div class="rule-text"><strong>No aplica</strong> a penados por grupo delictivo organizado, salvo colaboración eficaz.</div></div>
+      </div>
+    </div>
+    <div class="art-card">
+      <div class="art-head">
+        <div class="art-num">82</div>
+        <div><h3>Régimen Excepcional de Libertad Condicional</h3><p>Código Penal · Decreto 130-2017</p></div>
+      </div>
+      <div class="art-body">
+        <div class="rule-row"><div class="rule-icon" style="background:#F0F5FF;">👴</div><div class="rule-text"><strong>Mayores de 70 años</strong> con pena <strong>no superior a 20 años</strong>: pueden obtener L.C. sin cumplir la ½ o ⅔. Requieren cumplir requisitos 2, 3 y 4 del Art. 81.</div></div>
+        <div class="rule-row"><div class="rule-icon" style="background:#FFF0F5;">🏥</div><div class="rule-text"><strong>Enfermos graves incurables</strong>: mismo criterio. Debe acreditarse con informes médicos del Sistema Público de Salud.</div></div>
+        <div class="rule-row"><div class="rule-icon" style="background:#E8FFF0;">🌿</div><div class="rule-text"><strong>Delincuente primario</strong> con pena <strong>no mayor a 10 años</strong> que cumplió <span class="rfrac">⅓</span> y nunca tuvo suspensión de fallo: puede obtener L.C. excepcionalmente.</div></div>
+        <div class="rule-row"><div class="rule-icon" style="background:#FFE8E8;">🚫</div><div class="rule-text"><strong>No aplica</strong> a penados por participación en grupo delictivo organizado.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stitle">Cómputo de <span>Libertad Condicional</span></div>
+  <div class="sdesc">Complete los datos de la sentencia para calcular automáticamente las fechas del beneficio.</div>
+  <div class="divider"></div>
+
+  <div class="calc-card">
+    <div class="calc-head">
+      <div class="calc-head-icon">📅</div>
+      <div><h2>Calculadora de Cómputo de Pena</h2><p>Arts. 81 y 82 · Código Penal Honduras · Decreto 130-2017</p></div>
+    </div>
+    <div class="calc-body">
+      <div class="tip-box"><strong>📌 Instrucciones:</strong> Ingrese los datos de la sentencia. La calculadora determinará el artículo aplicable y calculará <strong>dos fechas</strong>: la que resulta del cómputo legal y la que el Juez de Ejecución decida fijar, las cuales pueden ser distintas.</div>
+
+      <div class="fsec">👤 Datos del Penado</div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Nombre completo <span class="req">*</span></label><input type="text" class="form-input" id="nombre" placeholder="Ej: JUAN ANTONIO LÓPEZ MARTÍNEZ"></div>
+        <div class="form-group"><label class="form-label">No. de Expediente</label><input type="text" class="form-input" id="expediente" placeholder="Ej: JESJSC-137-2023"></div>
+        <div class="form-group"><label class="form-label">Delito cometido <span class="req">*</span></label><input type="text" class="form-input" id="delito" placeholder="Ej: MALTRATO FAMILIAR"></div>
+        <div class="form-group"><label class="form-label">Juzgado</label><input type="text" class="form-input" id="juzgado" placeholder="Ej: Juzgado de Ejecución, Tegucigalpa"></div>
+      </div>
+
+      <div class="fsec">🔢 Tipo de Cómputo</div>
+      <div class="form-group" style="margin-bottom:14px;">
+        <label class="form-label">¿Cuántas condenas sucesivas tiene el penado? <span class="req">*</span></label>
+        <select class="form-select" id="modeSelect" onchange="onModeChange()">
+          <option value="simple">Una sola condena</option>
+          <option value="doble">Dos condenas sucesivas (se cumplen una después de otra)</option>
+        </select>
+      </div>
+      <div class="fsec">⚖️ Tipo de Régimen</div>
+      <div class="form-group"><label class="form-label">Régimen aplicable <span class="req">*</span></label>
+        <select class="form-select" id="regimen">
+          <option value="">— Seleccione el régimen —</option>
+          <option value="art81">Art. 81 — Régimen General (½ · ⅔ · 30 años según pena)</option>
+          <option value="art82_70">Art. 82 — Mayor de 70 años (pena ≤ 20 años)</option>
+          <option value="art82_enfermo">Art. 82 — Enfermo grave incurable (pena ≤ 20 años)</option>
+          <option value="art82_primario">Art. 82 — Delincuente primario (pena ≤ 10 años → ⅓)</option>
+        </select>
+      </div>
+
+      <div class="fsec">📅 Fechas de la Sentencia</div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Fecha de aprehensión / inicio del cómputo <span class="req">*</span></label><input type="date" class="form-input" id="fechaInicio"></div>
+        <div class="form-group"><label class="form-label">Fecha en que la sentencia adquirió firmeza</label><input type="date" class="form-input" id="fechaFirmeza"></div>
+      </div>
+
+      <div class="fsec">⏱️ Pena Impuesta</div>
+      <div class="form-grid-3">
+        <div class="form-group"><label class="form-label">Años <span class="req">*</span></label><input type="number" class="form-input" id="penaAnios" min="0" max="60" placeholder="0" value="0"></div>
+        <div class="form-group"><label class="form-label">Meses <span class="req">*</span></label><input type="number" class="form-input" id="penaMeses" min="0" max="11" placeholder="0" value="0"></div>
+        <div class="form-group"><label class="form-label">Días <span class="req">*</span></label><input type="number" class="form-input" id="penaDias" min="0" max="30" placeholder="0" value="0"></div>
+      </div>
+
+      <div class="fsec">⏳ Tiempo Previo Cumplido <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;" id="lbl_prev">(si aplica)</span></div>
+      <div class="form-grid-3">
+        <div class="form-group"><label class="form-label">Años previos</label><input type="number" class="form-input" id="prevAnios" min="0" placeholder="0" value="0"></div>
+        <div class="form-group"><label class="form-label">Meses previos</label><input type="number" class="form-input" id="prevMeses" min="0" placeholder="0" value="0"></div>
+        <div class="form-group"><label class="form-label">Días previos</label><input type="number" class="form-input" id="prevDias" min="0" placeholder="0" value="0"></div>
+      </div>
+
+      <div id="seccion2" style="display:none;">
+      <div class="fsec">📋 Segunda Condena (sucesiva)</div>
+      <div class="tip-box" style="margin-bottom:14px;">
+        <strong>📌 Condenas sucesivas:</strong> La 2ª condena empieza el día siguiente al fin de la 1ª. La Libertad Condicional se calcula sobre la pena que el penado está ejecutando cuando la solicita (generalmente la 2ª condena).
+      </div>
+      <div class="form-grid-3">
+        <div class="form-group"><label class="form-label">Años (2ª condena)</label><input type="number" class="form-input" id="pena2Anios" min="0" max="60" placeholder="0" value="0"></div>
+        <div class="form-group"><label class="form-label">Meses (2ª condena)</label><input type="number" class="form-input" id="pena2Meses" min="0" max="11" placeholder="0" value="0"></div>
+        <div class="form-group"><label class="form-label">Días (2ª condena)</label><input type="number" class="form-input" id="pena2Dias" min="0" max="30" placeholder="0" value="0"></div>
+      </div>
+    </div>
+      <div class="fsec">🧑‍⚖️ Fecha Fijada por el Juez de Ejecución <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(opcional)</span></div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Fecha que el Juez decide fijar para L.C.</label><input type="date" class="form-input" id="fechaJuez"></div>
+        <div class="form-group"><label class="form-label">Notas adicionales</label><input type="text" class="form-input" id="notasJuez" placeholder="Ej: Resolución del 15/04/2024"></div>
+      </div>
+
+      <button class="btn-calc" onclick="calcular()">📅 Calcular Libertad Condicional</button>
+      <button class="btn-reset" onclick="resetForm()">↺ Limpiar formulario</button>
+    </div>
+  </div>
+
+  <!-- RESULTADOS -->
+  <div id="resultSection">
+    <div id="eligibleBanner" class="eligible-banner"></div>
+    <div class="result-hero">
+      <div class="result-name" id="rNombre"></div>
+      <div class="result-title" id="rDelito"></div>
+      <div class="dates-grid">
+        <div id="dateCalcBlock" class="date-block calc-date">
+          <div class="dbl-label">⚖️ Fecha calculada (Art. 81/82)</div>
+          <div class="date-big" id="rFechaCalc">—</div>
+          <div class="date-sub" id="rFechaCalcSub"></div>
+        </div>
+        <div id="dateJuezBlock" class="date-block no-judge">
+          <div class="dbl-label">🧑‍⚖️ Fecha fijada por el Juez</div>
+          <div class="date-big" id="rFechaJuez">No especificada</div>
+          <div class="date-sub" id="rFechaJuezSub"></div>
+        </div>
+      </div>
+      <div id="rArtTag" class="art-tag"></div>
+    </div>
+    <div class="countdown-card">
+      <div class="cd-title">⏳ Tiempo pendiente para libertad condicional (desde hoy)</div>
+      <div class="cd-boxes" id="cdBoxes"></div>
+      <div id="cdPassed" class="cd-passed"></div>
+    </div>
+    <div class="breakdown-grid">
+      <div class="bk-card"><div class="bk-head"><span>📋 Datos de la Sentencia</span></div><div class="bk-body" id="bkSentencia"></div></div>
+      <div class="bk-card"><div class="bk-head"><span>🧮 Cómputo del Beneficio</span></div><div class="bk-body" id="bkComputo"></div></div>
+    </div>
+    <div id="timelineSection" style="display:none;margin-bottom:20px;">
+    <div class="bk-card">
+      <div class="bk-head"><span>📅 Cronología del Cómputo de Pena</span></div>
+      <div class="bk-body" id="timelineBody" style="padding:0;"></div>
+    </div>
+  </div>
+    <div class="legal-note">
+      <h4>⚠️ Nota Legal Importante</h4>
+      <p>Esta calculadora es orientativa. El Juez de Ejecución determina en definitiva la fecha de libertad condicional, valorando las circunstancias del Art. 81: buena conducta, pronóstico de reinserción y satisfacción de responsabilidades civiles. La fecha calculada es la fecha <em>mínima legal</em>. No aplica a penados por grupo delictivo organizado (salvo colaboración eficaz).</p>
+    </div>
+    <div class="creator-block">
+      <div class="cr-sub">Idea y concepto</div>
+      <div class="cr-name">Abg. Brayan Fernando Padilla</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- INSTALL BANNER -->
+<div id="installBanner">
+  <div class="ib-icon">📲</div>
+  <div class="ib-text"><h4>Instalar como App</h4><p>Accede sin internet · Funciona sin navegador</p></div>
+  <button class="btn-install" onclick="triggerInstall()">✦ Instalar</button>
+  <button class="btn-dismiss" onclick="dismissBanner()">Ahora no</button>
+</div>
+
+<footer>
+  <strong>⚖️ Calculadora de Libertad Condicional · Honduras</strong><br>
+  <strong>Código Penal — Decreto No. 130-2017</strong>, Artículos 81 y 82.<br>
+  <em>Herramienta orientativa. El Juez de Ejecución tiene la facultad definitiva de fijar la fecha.</em>
+  <div class="footer-creator">
+    <strong style="color:rgba(255,255,255,0.6);">Idea y Desarrollo:</strong>
+    <span>Abg. Brayan Fernando Padilla</span>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  UTILIDADES DE FECHA — CÁLCULO EXACTO (día a día)
+// ═══════════════════════════════════════════════════════
+const MESES=['enero','febrero','marzo','abril','mayo','junio',
+             'julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+function parseDate(s){
+  if(!s)return null;
+  const[y,m,d]=s.split('-').map(Number);
+  return new Date(y,m-1,d);
+}
+
+// Sumar años+meses+días de forma exacta (respeta meses de distinto largo)
+function addTime(date,y,m,d){
+  let r=new Date(date);
+  r.setFullYear(r.getFullYear()+y);
+  r.setMonth(r.getMonth()+m);
+  r.setDate(r.getDate()+d);
+  return r;
+}
+
+// Diferencia exacta en años, meses y días
+function diffTime(start,end){
+  if(end<start)return{years:0,months:0,days:0,totalDays:0,negative:true};
+  let d1=new Date(start),d2=new Date(end);
+  let y=d2.getFullYear()-d1.getFullYear();
+  let m=d2.getMonth()-d1.getMonth();
+  let d=d2.getDate()-d1.getDate();
+  if(d<0){m--;const pm=new Date(d2.getFullYear(),d2.getMonth(),0);d+=pm.getDate();}
+  if(m<0){y--;m+=12;}
+  const totalDays=Math.round((d2-d1)/86400000);
+  return{years:y,months:m,days:d,totalDays,negative:false};
+}
+
+function totalDaysBetween(a,b){return Math.round((new Date(b)-new Date(a))/86400000);}
+
+// Sumar SOLO meses (para la mitad exacta)
+function addMonths(date,m){
+  const r=new Date(date);
+  r.setMonth(r.getMonth()+m);
+  return r;
+}
+
+function fmtL(d){
+  const r=new Date(d);
+  return `${r.getDate()} de ${MESES[r.getMonth()]} de ${r.getFullYear()}`;
+}
+function fmtC(d){
+  const r=new Date(d);
+  return `${String(r.getDate()).padStart(2,'0')}/${String(r.getMonth()+1).padStart(2,'0')}/${r.getFullYear()}`;
+}
+function fmtD(y,m,d){
+  const p=[];
+  if(y>0)p.push(`${y} año${y>1?'s':''}`);
+  if(m>0)p.push(`${m} mes${m>1?'es':''}`);
+  if(d>0)p.push(`${d} día${d>1?'s':''}`);
+  return p.length?p.join(', '):'0 días';
+}
+
+// ═══════════════════════════════════════════════════════
+//  MODO: condena única o condenas sucesivas
+// ═══════════════════════════════════════════════════════
+function onModeChange(){
+  const mode=document.getElementById('modeSelect').value;
+  document.getElementById('seccion2').style.display=(mode==='doble')?'block':'none';
+  document.getElementById('lbl_prev').textContent=
+    mode==='doble'?'Tiempo ya cumplido de la 1ª condena antes de sentencia':'Tiempo previo cumplido (si aplica)';
+}
+
+// ═══════════════════════════════════════════════════════
+//  CALCULAR
+// ═══════════════════════════════════════════════════════
+function calcular(){
+  // Datos comunes
+  const nombre   = document.getElementById('nombre').value.trim();
+  const expediente=document.getElementById('expediente').value.trim();
+  const delito   = document.getElementById('delito').value.trim();
+  const juzgado  = document.getElementById('juzgado').value.trim();
+  const regimen  = document.getElementById('regimen').value;
+  const mode     = document.getElementById('modeSelect').value;
+  const fiStr    = document.getElementById('fechaInicio').value;
+  const fjStr    = document.getElementById('fechaJuez').value;
+  const notasJ   = document.getElementById('notasJuez').value.trim();
+
+  // Pena 1
+  const p1A=parseInt(document.getElementById('penaAnios').value)||0;
+  const p1M=parseInt(document.getElementById('penaMeses').value)||0;
+  const p1D=parseInt(document.getElementById('penaDias').value)||0;
+
+  // Tiempo previo
+  const prA=parseInt(document.getElementById('prevAnios').value)||0;
+  const prM=parseInt(document.getElementById('prevMeses').value)||0;
+  const prD=parseInt(document.getElementById('prevDias').value)||0;
+
+  // Validaciones
+  if(!nombre){alert('Ingrese el nombre del penado.');return;}
+  if(!regimen){alert('Seleccione el régimen aplicable.');return;}
+  if(!fiStr){alert('Ingrese la fecha de aprehensión.');return;}
+  if(p1A===0&&p1M===0&&p1D===0){alert('La pena impuesta no puede ser cero.');return;}
+
+  const fi=parseDate(fiStr);
+  const today=new Date();today.setHours(0,0,0,0);
+
+  // ─── Fin de la 1ª condena (descontando tiempo previo) ───
+  // Suma pena completa desde aprehensión (el tiempo previo ya está contado)
+  const fin1 = addTime(fi,p1A,p1M,p1D);
+  // Ajustar por tiempo previo: la fecha real de excarcelación 1 adelanta si ya cumplió tiempo
+  // Pero en cómputo hondureño: se cuenta desde la aprehensión (ya incluye el previo)
+  // Entonces fin de condena 1 = aprehensión + pena impuesta - tiempo previo ya descontado por el juez
+  const prevTotalDias=prA*365+prM*30+prD;
+
+  let finPena1, startPena2=null, finPena2=null, pena2Anios=0, pena2Meses=0, pena2Dias=0;
+  let finTotal, penaPrincipalParaLC, iniLC;
+  let pena2Str='';
+
+  if(mode==='doble'){
+    // Condena 2
+    pena2Anios=parseInt(document.getElementById('pena2Anios').value)||0;
+    pena2Meses=parseInt(document.getElementById('pena2Meses').value)||0;
+    pena2Dias =parseInt(document.getElementById('pena2Dias').value)||0;
+
+    if(pena2Anios===0&&pena2Meses===0&&pena2Dias===0){
+      alert('Ingrese la segunda condena.');return;
+    }
+
+    // Fin condena 1 = aprehensión + pena1
+    finPena1=addTime(fi,p1A,p1M,p1D);
+
+    // Inicio condena 2 = día siguiente al fin condena 1
+    startPena2=new Date(finPena1);
+    startPena2.setDate(startPena2.getDate()+1);
+
+    // Fin condena 2 = inicio condena 2 + pena2
+    finPena2=addTime(startPena2,pena2Anios,pena2Meses,pena2Dias);
+    finTotal=finPena2;
+
+    // La LC se calcula sobre la condena que está ejecutando al momento de pedirla
+    // En el ejemplo: la condena 2 es la que determina la LC
+    penaPrincipalParaLC='condena2';
+    iniLC=startPena2;
+    pena2Str=fmtD(pena2Anios,pena2Meses,pena2Dias);
+  } else {
+    finPena1=addTime(fi,p1A,p1M,p1D);
+    finTotal=finPena1;
+    penaPrincipalParaLC='condena1';
+    iniLC=fi;
+  }
+
+  // ─── Pena total en años para determinar fracción ───
+  const pLCAnios= penaPrincipalParaLC==='condena2'
+    ? pena2Anios+(pena2Meses/12)+(pena2Dias/365)
+    : p1A+(p1M/12)+(p1D/365);
+  const pLCA=penaPrincipalParaLC==='condena2'?pena2Anios:p1A;
+  const pLCM=penaPrincipalParaLC==='condena2'?pena2Meses:p1M;
+  const pLCD=penaPrincipalParaLC==='condena2'?pena2Dias:p1D;
+
+  // ─── Determinar fracción según régimen y pena ───
+  let frac=0.5,fracTxt='½ (mitad)',artTxt='Art. 81 — Régimen General',valido=true,msgInv='';
+
+  if(regimen==='art81'){
+    if(pLCAnios<=15){frac=0.5;fracTxt='½ (mitad)';}
+    else if(pLCAnios<30){frac=2/3;fracTxt='⅔ (dos tercios)';}
+    else{frac=-1;fracTxt='30 años efectivos';}
+    artTxt='Art. 81 — Régimen General';
+  }else if(regimen==='art82_70'){
+    artTxt='Art. 82 — Mayor de 70 años';
+    if(pLCAnios>20){valido=false;msgInv='No aplica: la pena supera los 20 años (Art. 82, párr. 1).';}
+    frac=0;fracTxt='Sin requisito de fracción';
+  }else if(regimen==='art82_enfermo'){
+    artTxt='Art. 82 — Enfermo grave incurable';
+    if(pLCAnios>20){valido=false;msgInv='No aplica: la pena supera los 20 años (Art. 82, párr. 2).';}
+    frac=0;fracTxt='Sin requisito de fracción (enfermedad acreditada)';
+  }else if(regimen==='art82_primario'){
+    artTxt='Art. 82 — Delincuente primario';
+    if(pLCAnios>10){valido=false;msgInv='No aplica: la pena supera los 10 años (Art. 82, párr. 3).';}
+    frac=1/3;fracTxt='⅓ (un tercio)';
+  }
+
+  // ─── Fecha de Libertad Condicional ───
+  let fechaLC,treqTxt='',lcDias=0;
+
+  if(frac===-1){
+    fechaLC=addTime(iniLC,30,0,0);
+    treqTxt='30 años efectivos de cumplimiento';
+  }else if(frac===0){
+    fechaLC=new Date(iniLC);
+    treqTxt='Inmediato (sujeto a acreditación requisitos Arts. 81 inc. 2, 3 y 4)';
+  }else{
+    // Calcular la mitad exacta: usar meses + días exactos
+    // Pena en días totales
+    const penaTotalDias=pLCA*365+pLCM*30+pLCD;
+    const mitadDias=Math.floor(penaTotalDias*frac);
+    lcDias=mitadDias;
+    // Fecha LC = inicio condena principal + mitad en días
+    fechaLC=new Date(iniLC);
+    fechaLC.setDate(fechaLC.getDate()+mitadDias);
+
+    // Texto descriptivo
+    const mA=Math.floor(mitadDias/365),mM=Math.floor((mitadDias%365)/30),mD=mitadDias%30;
+    treqTxt=`${fmtD(mA,mM,mD)} (${fracTxt} de ${fmtD(pLCA,pLCM,pLCD)})`;
+  }
+
+  // ─── Diferencias desde hoy ───
+  const pendiente=diffTime(today,fechaLC);
+  const yaElegible=fechaLC<=today;
+  const cumplDesdeIni=diffTime(fi,today);
+
+  // ─── PERIODO DE LIBERTAD CONDICIONAL ───
+  // Si le dan LC, estará en libertad desde fechaLC hasta finTotal
+  const periodoLC=fechaLC<finTotal?diffTime(fechaLC,finTotal):{years:0,months:0,days:0};
+
+  // ─── POBLAR INTERFAZ ───
+  document.getElementById('rNombre').textContent=`Penado: ${nombre}${expediente?' · Exp. '+expediente:''}`;
+  document.getElementById('rDelito').textContent=`${delito||'Proceso penal'}${juzgado?' · '+juzgado:''}`;
+  document.getElementById('rFechaCalc').textContent=fmtC(fechaLC);
+  document.getElementById('rFechaCalcSub').textContent=fmtL(fechaLC);
+  document.getElementById('rArtTag').textContent=`${artTxt} — ${fracTxt}`;
+
+  // Fecha del Juez
+  const jBlk=document.getElementById('dateJuezBlock');
+  if(fjStr){
+    const fj=parseDate(fjStr);
+    document.getElementById('rFechaJuez').textContent=fmtC(fj);
+    document.getElementById('rFechaJuezSub').textContent=fmtL(fj)+(notasJ?' · '+notasJ:'');
+    jBlk.className='date-block judge-date';
+  }else{
+    document.getElementById('rFechaJuez').textContent='No especificada';
+    document.getElementById('rFechaJuezSub').textContent='El Juez de Ejecución fijará la fecha definitiva';
+    jBlk.className='date-block no-judge';
+  }
+
+  // Banner elegibilidad
+  const bnr=document.getElementById('eligibleBanner');
+  if(!valido){
+    bnr.className='eligible-banner no';
+    bnr.innerHTML=`<div class="eb-icon">⛔</div><div><div class="eb-title">No aplica este régimen</div><div class="eb-text">${msgInv}</div></div>`;
+  }else if(yaElegible){
+    bnr.className='eligible-banner yes';
+    bnr.innerHTML=`<div class="eb-icon">✅</div><div><div class="eb-title">YA PUEDE SOLICITAR LA LIBERTAD CONDICIONAL</div><div class="eb-text">El penado cumplió el tiempo requerido. Puede presentar la solicitud ante el Juez de Ejecución.</div></div>`;
+  }else{
+    bnr.className='eligible-banner soon';
+    bnr.innerHTML=`<div class="eb-icon">⏳</div><div><div class="eb-title">Aún no alcanza el tiempo requerido</div><div class="eb-text">Faltan <strong>${fmtD(pendiente.years,pendiente.months,pendiente.days)}</strong> para poder solicitar el beneficio.</div></div>`;
+  }
+
+  // Countdown
+  const cdB=document.getElementById('cdBoxes'),cdP=document.getElementById('cdPassed');
+  if(yaElegible){
+    const pas=diffTime(fechaLC,today);
+    cdB.innerHTML=`<div class="cd-box"><div class="cd-num" style="color:#27AE60">✓</div><div class="cd-unit">Elegible</div></div>`;
+    cdP.style.display='flex';
+    cdP.innerHTML=`<div class="icon">✅</div><div class="text">El penado alcanzó la fecha de L.C. hace <strong>${fmtD(pas.years,pas.months,pas.days)}</strong>.</div>`;
+  }else{
+    cdB.innerHTML=`
+      <div class="cd-box"><div class="cd-num">${pendiente.years}</div><div class="cd-unit">Años</div></div>
+      <div class="cd-box"><div class="cd-num">${pendiente.months}</div><div class="cd-unit">Meses</div></div>
+      <div class="cd-box"><div class="cd-num">${pendiente.days}</div><div class="cd-unit">Días</div></div>`;
+    cdP.style.display='none';
+  }
+
+  // Breakdown condenas
+  let bkS=`
+    <div class="bk-row"><span class="bk-label">Fecha de aprehensión</span><span class="bk-val">${fmtC(fi)}</span></div>
+    <div class="bk-row"><span class="bk-label">1ª Condena</span><span class="bk-val gold">${fmtD(p1A,p1M,p1D)}</span></div>
+    <div class="bk-row"><span class="bk-label">Fin 1ª condena</span><span class="bk-val">${fmtC(finPena1)}</span></div>`;
+
+  if(mode==='doble'&&startPena2&&finPena2){
+    bkS+=`
+    <div class="bk-row"><span class="bk-label">Inicio 2ª condena</span><span class="bk-val">${fmtC(startPena2)}</span></div>
+    <div class="bk-row"><span class="bk-label">2ª Condena</span><span class="bk-val gold">${pena2Str}</span></div>
+    <div class="bk-row"><span class="bk-label">Fin 2ª condena</span><span class="bk-val">${fmtC(finPena2)}</span></div>`;
+  }
+
+  bkS+=`
+    <div class="bk-row"><span class="bk-label">Tiempo cumplido a hoy</span><span class="bk-val green">${fmtD(cumplDesdeIni.years,cumplDesdeIni.months,cumplDesdeIni.days)}</span></div>
+    <div class="bk-row" style="border-top:1px solid rgba(200,168,75,0.2);margin-top:4px;padding-top:8px;"><span class="bk-label"><strong>EXCARCELACIÓN TOTAL</strong></span><span class="bk-val gold">${fmtC(finTotal)}</span></div>`;
+
+  document.getElementById('bkSentencia').innerHTML=bkS;
+
+  let bkC=`
+    <div class="bk-row"><span class="bk-label">Condena base para L.C.</span><span class="bk-val">${penaPrincipalParaLC==='condena2'?'2ª condena ('+pena2Str+')':'1ª condena ('+fmtD(p1A,p1M,p1D)+')'}</span></div>
+    <div class="bk-row"><span class="bk-label">Inicio cómputo L.C.</span><span class="bk-val">${fmtC(iniLC)}</span></div>
+    <div class="bk-row"><span class="bk-label">Fracción requerida</span><span class="bk-val gold">${fracTxt}</span></div>
+    <div class="bk-row"><span class="bk-label">Tiempo necesario</span><span class="bk-val" style="font-size:10.5px;">${treqTxt}</span></div>
+    <div class="bk-row"><span class="bk-label">Fecha L.C. calculada</span><span class="bk-val gold">${fmtC(fechaLC)}</span></div>
+    ${fjStr?`<div class="bk-row"><span class="bk-label">Fecha fijada por el Juez</span><span class="bk-val green">${fmtC(parseDate(fjStr))}</span></div>`:''}
+    <div class="bk-row"><span class="bk-label">Período en L.C. (si se concede)</span><span class="bk-val">${fmtD(periodoLC.years,periodoLC.months,periodoLC.days)}</span></div>
+    <div class="bk-row"><span class="bk-label">Estado actual</span><span class="bk-val ${yaElegible?'green':'red'}">${yaElegible?'✅ Elegible':'⏳ Pendiente'}</span></div>
+    ${!yaElegible?`<div class="bk-row"><span class="bk-label">Pendiente para L.C.</span><span class="bk-val red">${fmtD(pendiente.years,pendiente.months,pendiente.days)}</span></div>`:''}`;
+
+  document.getElementById('bkComputo').innerHTML=bkC;
+
+  // Tabla cronológica
+  buildTimeline(fi,finPena1,startPena2,finPena2,finTotal,fechaLC,fjStr?parseDate(fjStr):null,mode,today);
+
+  const rs=document.getElementById('resultSection');
+  rs.style.display='block';
+  setTimeout(()=>rs.scrollIntoView({behavior:'smooth',block:'start'}),150);
+}
+
+// ═══════════════════════════════════════════════════════
+//  TABLA CRONOLÓGICA
+// ═══════════════════════════════════════════════════════
+function buildTimeline(fi,fin1,ini2,fin2,finTotal,fechaLC,fechaJuez,mode,today){
+  const events=[];
+  events.push({fecha:fi,   label:'Aprehensión / inicio del cómputo',icon:'🔒',color:'#C0392B'});
+  events.push({fecha:fin1, label:`Fin de la 1ª condena`,icon:'📋',color:'#E67E22'});
+  if(mode==='doble'&&ini2&&fin2){
+    events.push({fecha:ini2,label:'Inicio de la 2ª condena (sucesiva)',icon:'📋',color:'#8E44AD'});
+    events.push({fecha:fin2,label:'Fin de la 2ª condena',icon:'📋',color:'#E67E22'});
+  }
+  events.push({fecha:fechaLC,label:'Fecha en que puede solicitar L.C. (Art. 81/82)',icon:'⚖️',color:'#C8A84B'});
+  if(fechaJuez)events.push({fecha:fechaJuez,label:'Fecha fijada por el Juez de Ejecución',icon:'🧑‍⚖️',color:'#27AE60'});
+  events.push({fecha:finTotal,label:'Excarcelación total (fin de toda la pena)',icon:'🔓',color:'#27AE60'});
+
+  events.sort((a,b)=>a.fecha-b.fecha);
+
+  let html=`<div style="overflow-x:auto;margin-top:4px;">
+  <table style="width:100%;border-collapse:collapse;font-size:12.5px;">
+    <thead>
+      <tr style="background:linear-gradient(135deg,var(--dark),var(--mid));">
+        <th style="color:var(--gold-l);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.5px;text-transform:uppercase;">Evento</th>
+        <th style="color:var(--gold-l);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;">Fecha</th>
+        <th style="color:var(--gold-l);padding:11px 14px;text-align:left;font-size:11px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;">Desde hoy</th>
+      </tr>
+    </thead><tbody>`;
+
+  events.forEach((ev,i)=>{
+    const isPast=ev.fecha<=today;
+    const diff=isPast?diffTime(ev.fecha,today):diffTime(today,ev.fecha);
+    const diffStr=isPast
+      ?`<span style="color:#27AE60;">Hace ${fmtD(diff.years,diff.months,diff.days)}</span>`
+      :`<span style="color:var(--gold);">En ${fmtD(diff.years,diff.months,diff.days)}</span>`;
+    const bg=i%2===0?'#FAFAF7':'#FFFFFF';
+    html+=`<tr style="background:${bg};border-bottom:1px solid #EDE8DE;">
+      <td style="padding:10px 14px;display:flex;align-items:center;gap:8px;">
+        <span style="font-size:16px;">${ev.icon}</span>
+        <span style="color:var(--dark);font-weight:${ev.label.includes('L.C.')||ev.label.includes('Excarcelación')?'700':'400'};">${ev.label}</span>
+      </td>
+      <td style="padding:10px 14px;font-family:'DM Mono',monospace;font-weight:600;color:${ev.color};white-space:nowrap;">${fmtC(ev.fecha)}</td>
+      <td style="padding:10px 14px;">${diffStr}</td>
+    </tr>`;
+  });
+
+  html+=`</tbody></table></div>`;
+  document.getElementById('timelineBody').innerHTML=html;
+  document.getElementById('timelineSection').style.display='block';
+}
+
+function resetForm(){
+  document.querySelectorAll('.form-input,.form-select').forEach(el=>{
+    el.type==='number'?el.value='0':el.value='';
+  });
+  document.getElementById('modeSelect').value='simple';
+  onModeChange();
+  document.getElementById('resultSection').style.display='none';
+  document.getElementById('timelineSection').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// PWA
+let deferredPrompt;
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;
+  setTimeout(()=>{
+    if(!localStorage.getItem('pwa_lc')){
+      document.getElementById('installBanner').style.display='flex';
+      document.getElementById('installBtn2').style.display='block';
+    }
+  },3000);
+});
+async function triggerInstall(){
+  document.getElementById('installBanner').style.display='none';
+  if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;}
+}
+function dismissBanner(){document.getElementById('installBanner').style.display='none';localStorage.setItem('pwa_lc','1');}
+window.addEventListener('appinstalled',()=>{
+  document.getElementById('installBanner').style.display='none';
+  const t=document.createElement('div');
+  t.style.cssText='position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:9999;background:#0D3020;border:1px solid rgba(200,168,75,.5);border-radius:50px;padding:10px 22px;color:#E5C96F;font-family:sans-serif;font-size:13px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.4);';
+  t.textContent='✅ ¡App instalada exitosamente!';
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),4000);
+});
+</script>
+</body>
+</html>
